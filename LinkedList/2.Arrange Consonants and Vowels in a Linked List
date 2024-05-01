@@ -1,1 +1,88 @@
+//This is a Geeks For Geeks question for 1st may 2024
+This Solution is only for verifying or checking your solution.
+
+Given a singly linked list having n nodes containing english alphabets ('a'-'z'). Rearrange the linked list in such a way that all the vowels come before the consonants while maintaining the order of their arrival. 
+
+Example 1:
+
+Input:
+n = 9
+linked list: a -> b -> c -> d -> e -> f -> g -> h -> i 
+Output: 
+a -> e -> i -> b -> c -> d -> f -> g -> h
+Explanation: 
+After rearranging the input linked list according to the condition the resultant linked list will be as shown in output.
+Example 2:
+
+Input:
+n = 8
+linked list: a -> b -> a -> b -> d -> e -> e -> d 
+Output: 
+a -> a -> e -> e -> b -> b -> d -> d
+Explanation: 
+After rearranging the input linked list according to the condition the resultant linked list will be as shown in output.
+
+---->>>java solution
+
+Logic:-
+1.create one array list (allchar) and store all the characters present in the linked list.
+2.created two more arraylist store all th vowels (stvow) in one arraylist and store constants(stcon) in another.
+3.check the condition and make a lined list starting from vowels to constant.
+
+public Node arrangeCV(Node head){
+        //write code here and return the head of changed linked list
+        
+        ArrayList<Character> allchar=new ArrayList<Character>();
+        Node temp = head;
+        while(temp!=null)
+        {
+            allchar.add(temp.data);
+            temp=temp.next;
+        }
+        ArrayList<Character> stvow=new ArrayList<>();
+        ArrayList<Character> stcon=new ArrayList<>();
+        
+        int len = allchar.size();
+        for(int i=0;i<len;i++)
+        {
+            char curr=allchar.get(i);
+            if(curr=='a' || curr=='e' || curr=='i' || curr=='o' ||curr=='u')
+              stvow.add(curr);
+            else
+               stcon.add(curr);
+        }
+        temp=head;
+        int vsize=stvow.size();
+        int vcount=0,ccount=0;
+        while(temp!=null)
+        {
+            if(vcount<vsize)
+              {
+                  temp.data=stvow.get(vcount);
+                  vcount+=1;
+              }
+              else
+              {
+                  temp.data=stcon.get(ccount);
+                  ccount++;
+              }
+              temp=temp.next;
+        }
+        return head;
+        
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

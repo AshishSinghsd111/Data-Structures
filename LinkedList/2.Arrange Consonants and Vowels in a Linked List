@@ -8,7 +8,7 @@ Example 1:
 Input:
 n = 9
 linked list: a -> b -> c -> d -> e -> f -> g -> h -> i 
-Output: 
+Output:    
 a -> e -> i -> b -> c -> d -> f -> g -> h
 Explanation: 
 After rearranging the input linked list according to the condition the resultant linked list will be as shown in output.

@@ -1,1 +1,83 @@
+// this is a gfg daily problem for 3rd may
+// this solution is only for knowledge purpose.
+Given a binary tree having n nodes and an integer k. Print all nodes that are at distance k from the root (root is considered at distance 0 from itself). Nodes should be printed from left to right.
+
+Example 1:
+
+Input:
+k = 0
+      1
+    /   \
+   3     2
+Output: 
+1
+Explanation: 
+1 is the only node which is 0 distance from the root 1.
+Example 2:
+
+Input:
+k = 3
+        1
+       /
+      2
+       \
+        1
+      /  \
+     5    3
+Output: 
+5 3
+Explanation:  
+5 and 3 are the nodes which are at distance 3 from the root 3.
+Here, returning 3 5 will be incorrect.
+Your Task:
+You don't have to take input. Complete the function Kdistance() that accepts root node and k as parameters and returns the value of the nodes that are at a distance k from the root.
+
+Expected Time Complexity: O(n).
+Expected Auxiliary Space: O(Height of the Tree).
+
+Constraints:
+1 <= n <= 104
+0 <= k <= 30
+
+---->>>
+---->>>> java solution:-
+
+Logic:-
+1. for this we have used recursive solution.
+2. we write a user ddefined method(findk)  for the given problem
+  -if root=null we return i.e. we reach to leaf node.
+  - similarly if k=0 i.e. we reach the given level and insert the given node value to the array list.
+  - then we just recursively check for left and right by decreasing the level(K) by one until we reach the given k.
+
+
+class Tree
+{
+     // Recursive function to print right view of a binary tree.
+     
+     void findk(Node root,int k, ArrayList<Integer> ans)
+     {
+         if(root==null)
+             return;
+          if(k==0) 
+            ans.add(root.data);
+          else
+          {
+              findk(root.left,k-1,ans);
+              findk(root.right,k-1,ans);
+          }
+     }
+     ArrayList<Integer> Kdistance(Node root, int k)
+     {
+          // Your code here
+          Node temp=root;
+          ArrayList<Integer> res=new ArrayList<>();
+         findk(root,k,res);
+         return res;
+          
+     }
+}
+
+
+
+
 

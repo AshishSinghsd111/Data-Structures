@@ -28,3 +28,30 @@ Constraints:
 --->> JAVA SOLUTION
 
 
+
+class Solution {
+    public static int findClosest(int n, int k, int[] arr) {
+        // code here
+        int res=arr[0];
+        int min=Math.abs(k-arr[0]);
+        for(int i=1;i<n;i++)
+        {
+          
+            int curr=Math.abs(k-arr[i]);
+            if(curr<=min)
+            {
+                if(res<arr[i])
+                  res=arr[i];
+                  min=curr;
+                
+            }
+          
+            
+        }
+        return res;
+    }
+}
+        
+
+
+

@@ -4,7 +4,7 @@ Implement pow(x, n) % M.
 In other words, for a given value of x, n, and M, find  (xn) % M.
  
 
-Example 1:
+Example 1:-
 
 Input:
 x = 3, n = 2, m = 4

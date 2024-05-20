@@ -1,0 +1,36 @@
+//this is a geeks for geeks problem of the day for 20th may 2024.
+//
+Implement pow(x, n) % M.
+In other words, for a given value of x, n, and M, find  (xn) % M.
+ 
+
+Example 1:
+
+Input:
+x = 3, n = 2, m = 4
+Output:
+1
+
+
+--->>>>java solution
+
+
+
+class Solution
+{
+    public long PowMod(long x, long n, long m)
+    {
+        // Code here
+       long res=1;
+        while(n>0){
+            if(n%2==1){
+                res=(res*x)%m;
+                n--;
+            }
+            x=(x*x)%m;
+            n=n/2;
+            
+        }
+        return (int)(res);
+    }
+}

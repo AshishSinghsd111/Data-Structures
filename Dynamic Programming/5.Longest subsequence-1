@@ -32,3 +32,20 @@ Constraints:
 
 --->> java solution
 
+
+class Solution {
+    public static int longestSubseq(int n, int[] a) {
+        // code here
+         HashMap<Integer, Integer> map = new HashMap<>();
+        int res = 0;
+        for(int i=0;i<n;i++){
+            int element = a[i];
+            int prev = map.getOrDefault(element-1, 0);
+            int next = map.getOrDefault(element+1, 0);
+            int crr = Math.max(prev, next) + 1;
+            map.put(element, crr);
+            res = Math.max(res, crr);
+        }
+        return res;
+    }
+}

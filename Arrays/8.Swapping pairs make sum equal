@@ -23,3 +23,35 @@ Constraints:
 0 <= a[i], b[i] <= 105
 
 -->>> java solution
+
+class Solution {
+    long findSwapValues(long a[], int n, long b[], int m) {
+    
+        long sum1=0,sum2=0; 
+        HashSet<Long> h1=new HashSet<>(); 
+        for(long i:a) {
+            h1.add(i);
+            sum1+=i;
+        }
+        HashSet<Long> h2=new HashSet<>(); 
+        for(long i:b) {
+            h2.add(i);
+            sum2+=i;
+        }
+        
+        long mid=sum2+sum1; 
+        if(mid%2!=0) return -1;
+        mid/=2;                          
+
+        HashSet<Long> smaller=(sum1>sum2)?h2:h1;
+        HashSet<Long> larger=(sum1>sum2)?h1:h2; 
+        long lowerSum=(sum1>sum2)?sum2:sum1;
+        
+        for(long i:smaller)
+            if(larger.contains(mid+i-lowerSum)) return 1; 
+
+        
+        return -1;
+        
+    }
+}

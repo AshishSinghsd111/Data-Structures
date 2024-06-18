@@ -20,3 +20,20 @@ Constraints:
 
 -->> java solution
 
+
+class Solution {
+    int rectanglesInCircle(int radius) {
+        int rectangleCount = 0;
+
+       
+        for (int x = 1; x < 2 * radius; x++) {
+            int y = 1;
+            while (4 * radius * radius >= x * x + y * y) {
+                rectangleCount++; 
+                y++; 
+            }
+        }
+
+        return rectangleCount; 
+    }
+}

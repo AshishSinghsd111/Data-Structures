@@ -16,3 +16,24 @@ Expected Auxiliary Space: O(1)
 Constraints :
 1 ≤ perimeter ≤ 109
 1 ≤ area ≤ 109
+
+-->> java solution
+lass Solution {
+
+    double maxVolume(double perimeter, double area) {
+        
+        double P = perimeter;
+        double A = area;
+        
+        // Compute the intermediate terms to find dimensions
+        double sqrtTerm = Math.sqrt(P * P - 24 * A);
+        double dimension1 = (P - sqrtTerm) / 12.0;
+        double dimension2 = (P / 4.0) - 2 * dimension1;
+        
+        // Calculate the volume
+        double volume = Math.pow(dimension1, 2) * dimension2;
+        
+        // Round the result to two decimal places
+        return Math.round(volume * 100.0) / 100.0;
+    }
+}

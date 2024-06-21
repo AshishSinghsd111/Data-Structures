@@ -23,3 +23,30 @@ Constraints:
 1<=b,d<=103
 
 -->> java solution
+
+
+class Solution {
+
+    String compareFrac(String str) {
+        // Code here
+         String[] arr= str.split("[,\\s]+");
+        
+            String[] frac = arr[0].split("/");
+            int num1=Integer.parseInt(frac[0]);
+            int den1=Integer.parseInt(frac[1]);
+            
+            float res1=(float)num1/den1;
+            
+            frac = arr[1].split("/");
+            int num2=Integer.parseInt(frac[0]);
+            int den2=Integer.parseInt(frac[1]);
+            
+            float res2=(float)num2/den2;
+            
+            if(res1==res2){
+                return "equal";
+            }
+        return (res1>res2) ? arr[0] : arr[1];
+    }
+}
+

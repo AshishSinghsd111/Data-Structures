@@ -31,3 +31,24 @@ Constraints:
 1<= data of the node <=105
 
 ->> jav solution
+
+*/
+class Solution {
+    Node curr = null;
+    public void populateNext(Node root) {
+        // code here
+        if(root == null){
+            return;
+        }
+        ino(root);
+    }
+    void ino(Node root){
+        if(root == null){
+            return;
+        }
+        ino(root.right);
+        root.next = curr;
+        curr = root;
+        ino(root.left);
+    }
+}

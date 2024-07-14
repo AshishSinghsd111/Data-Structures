@@ -18,3 +18,21 @@ Constraints:
 0 ≤ arr[i] ≤ 1
 
 -->> java solution
+class Solution {
+    void segregate0and1(int[] arr) {
+        // code here
+        int zeroes=0;
+        for(int val:arr){
+            if(val==0) zeroes++;
+        }
+        int i=0;
+        while(i<zeroes){
+            arr[i]=0;
+            i++;
+        }
+        while(i<arr.length){
+            arr[i]=1;
+            i++;
+        }
+    }
+}

@@ -23,3 +23,38 @@ nums[i] may contain duplicates.
 
 ->> java solution
 
+class Solution {
+    public static long[] productExceptSelf(int nums[]) {
+        long product=1;
+        
+        long []ans=new long[nums.length];
+        int zero=0;
+        
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==0){
+                zero++;
+                continue;
+            }
+            product=product*nums[i];
+        }
+        
+        if(zero>=2)return ans;
+        
+        if(zero==1){
+        for(int i=0;i<ans.length;i++){
+            if(nums[i]==0)ans[i]=product;
+            else
+            ans[i]=0;
+        }
+        }
+        else{
+        for(int i=0;i<ans.length;i++){
+           ans[i]=product/nums[i];
+        } 
+        }
+        
+        return ans;
+        
+    }
+}
+

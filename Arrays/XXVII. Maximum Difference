@@ -5,7 +5,7 @@ Given an integer array arr of integers, the task is to find the maximum absolute
 Examples :
 
 Input: arr = [2, 1, 8]
-Output: 1
+Output: 1  
 Explanation: left smaller array ls = [0, 0, 1], right smaller array rs = [1, 0, 0]. Maximum Diff of abs(ls[i] - rs[i]) = 1
 Input: arr = [2, 4, 8, 7, 7, 9, 3]
 Output: 4

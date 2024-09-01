@@ -20,3 +20,33 @@ Constraints:
 
 -->> java solution
 
+class Solution {
+    public int maxPathSum(List<Integer> arr1, List<Integer> arr2) {
+        int m=arr1.size();
+        int n=arr2.size();
+        int res=0;
+        int s1=0,s2=0;
+        int i=0,j=0;
+        
+        while(i<m && j<n){
+            if(arr1.get(i)<arr2.get(j))
+                s1+=arr1.get(i++);
+            else if (arr1.get(i)>arr2.get(j))
+               s2+=arr2.get(j++);
+            else {
+                res+=Math.max(s1,s2)+arr2.get(j);
+                s1=0;
+                s2=0;
+                i++;
+                j++;
+            }
+        }
+        while(i<m)
+         s1+=arr1.get(i++);
+        while(j<n)
+         s2+=arr2.get(j++);
+         
+         res+=Math.max(s1,s2);
+         return res;
+    }
+}

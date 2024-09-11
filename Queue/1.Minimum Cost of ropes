@@ -26,3 +26,38 @@ Constraints:
 1 ≤ arr[i] ≤ 106
 
 -->> java solution
+
+class Solution {
+    // Function to return the minimum cost of connecting the ropes.
+    public long minCost(long[] arr) {
+        // Create a min-heap (Priority Queue) to store rope lengths
+        PriorityQueue<Long> pq = new PriorityQueue<>();
+
+        // Add all rope lengths to the priority queue
+        for (long length : arr) {
+            pq.add(length);
+        }
+
+        // Initialize total cost
+        long totalCost = 0;
+
+        // Continue connecting ropes until only one remains
+        while (pq.size() > 1) {
+            // Extract the two smallest ropes
+            long first = pq.poll();
+            long second = pq.poll();
+
+            // The cost to connect these two ropes
+            long cost = first + second;
+
+            // Add the current cost to the total cost
+            totalCost += cost;
+
+            // Insert the combined rope back into the priority queue
+            pq.add(cost);
+        }
+
+        // Return the total cost
+        return totalCost;
+    }
+}

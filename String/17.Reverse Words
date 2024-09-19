@@ -20,3 +20,12 @@ Constraints:
 
 -->> java solution
 
+class Solution {
+    // Function to reverse words in a given string.
+    String reverseWords(String str) {
+        // code here
+        String[] strArray = str.split("\\.");
+        Collections.reverse(Arrays.asList(strArray));
+        return String.join(".", strArray);
+    }
+}

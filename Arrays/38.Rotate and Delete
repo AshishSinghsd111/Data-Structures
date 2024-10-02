@@ -25,3 +25,17 @@ Constraints:
 
 -->> java solution
 
+class Solution {
+    public static int rotateDelete(ArrayList<Integer> arr) {
+        // code here
+        int sz=arr.size();
+        int n=sz;
+        for(int k=1;k<=sz/2;k++){
+            int last=arr.get(n-1);
+            arr.add(0,last);
+            arr.remove(n-k);
+            n--;
+        }
+        return arr.get(0);
+    }
+}

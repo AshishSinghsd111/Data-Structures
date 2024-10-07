@@ -5,6 +5,7 @@ Note: Order does not matter means for n = 4:- {1 2 1},{2 1 1},{1 1 2} are consid
 
 Examples :
 
+
 Input: n = 4
 Output: 3
 Explanation: Three ways to reach at 4th stair. They are {1, 1, 1, 1}, {1, 1, 2}, {2, 2}.

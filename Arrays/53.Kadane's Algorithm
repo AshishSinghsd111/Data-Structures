@@ -1,0 +1,45 @@
+//this is a gfg potd for 24th november 2024.
+
+Given an integer array arr[]. You need to find the maximum sum of a subarray.
+
+Examples:
+
+Input: arr[] = [2, 3, -8, 7, -1, 2, 3]
+Output: 11
+Explanation: The subarray {7, -1, 2, 3} has the largest sum 11.
+Input: arr[] = [-2, -4]
+Output: -2
+Explanation: The subarray {-2} has the largest sum -2.
+Input: arr[] = [5, 4, 1, 7, 8]
+Output: 25
+Explanation: The subarray {5, 4, 1, 7, 8} has the largest sum 25.
+Constraints:
+1 ≤ arr.size() ≤ 105
+-109 ≤ arr[i] ≤ 104
+
+-->> java solution
+
+
+// User function Template for Java
+class Solution {
+
+    // arr: input array
+    // Function to find the sum of contiguous subarray with maximum sum.
+    int maxSubarraySum(int[] arr) {
+
+        // Your code here
+        int n=arr.length;
+        int res=Integer.MIN_VALUE;
+        int curr_sum=0;
+        
+        for(int i=0;i<n;i++)
+        {
+            curr_sum+=arr[i];
+            res=Math.max(res,curr_sum);
+            if(curr_sum<0)
+               curr_sum=0;
+        }
+        
+        return res;
+    }
+}
